@@ -1,0 +1,21 @@
+{
+  "name": "MondayPoker",
+  "version": "1.0.0",
+  "description": "Little serveur to create and launch Game between poker bots.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "poker",
+    "es6",
+    "bot"
+  ],
+  "author": "Ludovic Lafole",
+  "license": "MIT",
+  "dependencies": {
+    "6to5": "^2.13.7",
+    "express": "~4.0.0",
+    "body-parser": "~1.0.1"
+  }
+}
