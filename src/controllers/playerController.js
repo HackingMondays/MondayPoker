@@ -29,7 +29,11 @@ export const playerController = {
         return res.status(404).end();
     },
     destroy(req, res) {
-        playerService.deleteByName(req.params.id);
-        res.status(204).end();
+        var player = playerService.findByName(req.params.id);
+        if (player) {
+            playerService.deleteByName(req.params.id);
+            return res.status(204).end();
+        }
+        return res.status(404).end();
     }
 };

@@ -99,4 +99,30 @@ describe("PlayerController", () => {
             expect(fetchResponse.data.url).to.equal(updatedUrl)
         });
     });
+    describe("#destroy", () => {
+        it("should respond 404 if the player does not exist.", async () => {
+            var response = await playerController.destroy.with({
+                params: { id: "toto" }
+            });
+            expect(response.status).to.equal(404);
+        });
+        it("should delete the player if it exists", async () => {
+            var name = "toto";
+            var createResponse = await playerController.create.with({
+                body: { name, url:"http://google.fr" }
+            });
+            expect(createResponse.status).to.equal(201);
+
+            var updateResponse = await playerController.destroy.with({
+                params: { id: name }
+            });
+            expect(updateResponse.status).to.equal(204);
+
+            var fetchResponse = await playerController.fetch.with({
+                params: { id:name }
+            });
+            expect(fetchResponse.status).to.equal(404);
+        });
+    });
+
 });
