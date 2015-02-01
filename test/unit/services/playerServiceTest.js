@@ -1,6 +1,12 @@
-import {playerService} from '../../src/services/playerService.js'
+import rewire from 'rewire'
+var serviceImport = rewire('../../../src/services/playerService.js');
+var playerService = serviceImport.playerService;
 
 describe("PlayersService", () => {
+    beforeEach(() => {
+        serviceImport.__set__("players", []);
+    });
+
     it("should not find any players before any player is added", () => {
         expect(playerService.findAll())
             .to.be.empty();
@@ -11,7 +17,7 @@ describe("PlayersService", () => {
             name
         });
         var players = playerService.findAll();
-        expect(players).length.to.be.at.least(1);
+        expect(players).to.have.length(1);
         var player = playerService.findByName(name);
         expect(player).to.exist();
         expect(player.name).to.equal(name);

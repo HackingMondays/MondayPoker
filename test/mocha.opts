@@ -1,5 +1,4 @@
---require ./initTest.js
+--require ./test/tools/testGlobals.js
 --reporter spec
 --ui bdd
---compilers js:6to5/register
 --recursive
