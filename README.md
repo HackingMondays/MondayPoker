@@ -13,6 +13,16 @@ To start the server :
 npm start
 ```
 
+To run tests :
+```shell
+npm test
+```
+
+To run test in watch mode :
+```shell
+npm run test-watch
+```
+
 It's based on an existing server right there : https://github.com/mdp/MachinePoker
 It started as a fork on which we added a front to display games. But like every one is not at ease with coffee inside HackingMonday, we decided to remake it with ES6/7 features.
 To enable ES6/7 features we decided to use 6to5.
