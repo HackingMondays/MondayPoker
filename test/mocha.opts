@@ -1,0 +1,5 @@
+--require ./initTest.js
+--reporter spec
+--ui bdd
+--compilers js:6to5/register
+--recursive

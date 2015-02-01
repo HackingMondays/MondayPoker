@@ -8,9 +8,9 @@ export const playerService = {
     },
     deleteByName(name) {
         players = players.filter((player) => {
-            return player.name != name;
+            return player.name !== name;
         });
-        return players;
+        return this.findAll();
     },
     exists(name) {
         return !!this.findByName(name);
