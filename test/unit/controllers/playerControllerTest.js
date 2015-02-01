@@ -68,4 +68,35 @@ describe("PlayerController", () => {
             expect(response.data).to.be.empty();
         })
     });
+    describe("#update", () => {
+        it("should respond 404 if the player does not exist.", async () => {
+            var name = "toto";
+            var response = await playerController.update.with({
+                params: { id: name },
+                body: { url:"localhost" }
+            });
+            expect(response.status).to.equal(404);
+        });
+        it("should update the player if it exists", async () => {
+            var name = "toto";
+            var createResponse = await playerController.create.with({
+                body: { name, url:"http://google.fr" }
+            });
+            expect(createResponse.status).to.equal(201);
+
+            var updatedUrl = "localhost";
+            var updateResponse = await playerController.update.with({
+                params: { id: name },
+                body: { name:"Alfred", url: updatedUrl }
+            });
+            expect(updateResponse.status).to.equal(204);
+
+            var fetchResponse = await playerController.fetch.with({
+                params: { id:name }
+            });
+            expect(fetchResponse.data).to.exist();
+            expect(fetchResponse.data.name).to.equal(name);
+            expect(fetchResponse.data.url).to.equal(updatedUrl)
+        });
+    });
 });
