@@ -1,7 +1,7 @@
 import {playerService} from '../services/playerService.js'
 import {resource} from "../resource.js"
 
-export const playerRouter = resource("/players", {
+export const playerController = {
     list(req, res) {
         res.json(playerService.findAll());
     },
@@ -32,4 +32,4 @@ export const playerRouter = resource("/players", {
         playerService.deleteByName(req.params.id);
         res.status(204).end();
     }
-});
+};
