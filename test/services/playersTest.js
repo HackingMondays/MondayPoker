@@ -1,4 +1,4 @@
-import {playerService} from '../../src/services/players.js'
+import {playerService} from '../../src/services/playerService.js'
 
 describe("PlayersService", () => {
     it("should not find any players before any player is added", () => {

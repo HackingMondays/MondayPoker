@@ -1,6 +1,6 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import {playerRouter} from './controllers/players.js'
+import {playerRouter} from './controllers/playerController.js'
 
 const app = express();
 

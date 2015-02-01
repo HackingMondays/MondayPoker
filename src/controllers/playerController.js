@@ -1,4 +1,4 @@
-import {playerService} from '../services/players.js'
+import {playerService} from '../services/playerService.js'
 import {resource} from "../resource.js"
 
 export const playerRouter = resource("/players", {
